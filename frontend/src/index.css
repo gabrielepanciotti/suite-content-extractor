@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@suite/design-system/theme.css";
+
+/* Tailwind v4 scans only this app's sources, and skips node_modules: the
+   classes used INSIDE the linked design system (a Button's height, padding,
+   radius) were never generated, so every button rendered as bare text. */
+@source "../node_modules/@suite/design-system/src";
+
+/* La pagina va dipinta con i token, non lasciata sul default del browser.
+   Senza queste righe il documento resta bianco con testo nero mentre i token
+   risolvono la palette scura: `hover:bg-surface-2` dipinge la riga di #1e1e27
+   sotto un testo nero, e il testo sparisce. Il tema non era sbagliato — non
+   era mai stato acceso, e si vedeva solo dove un'utility di sfondo lo usava. */
+@layer base {
+  html {
+    /* Allinea i controlli nativi (scrollbar, campi, focus) alla stessa
+       preferenza da cui theme.css sceglie la palette: senza, una scrollbar
+       chiara resta incollata a una pagina scura. */
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tailwind v4 azzera il `cursor: pointer` che il browser dava ai bottoni:
+     un elemento che reagisce al clic senza dirlo al puntatore sembra morto.
+     Sta qui e non sulle singole classi perche' vale anche per i bottoni che
+     arrivano dal design system (il Checkbox di Radix e' un <button>). */
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+}

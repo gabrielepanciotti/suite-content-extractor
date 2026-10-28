@@ -1,0 +1,9 @@
+# Example for a published ContentExtractor image. Copy .env.example to .env first.
+services:
+  content-extractor:
+    image: ghcr.io/example/content-extractor:latest
+    env_file:
+      - ../.env
+    ports:
+      - "10053:10053"
+    restart: unless-stopped

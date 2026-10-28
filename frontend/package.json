@@ -1,0 +1,29 @@
+{
+  "name": "contentextractor-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@suite/design-system": "file:../../Life/packages/design-system",
+    "@suite/i18n": "file:../../Life/packages/i18n",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "@testing-library/react": "^16.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.0",
+    "tailwindcss": "^4.3.1",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.0"
+  }
+}

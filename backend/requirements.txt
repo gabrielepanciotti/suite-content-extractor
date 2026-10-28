@@ -1,0 +1,22 @@
+suite_backend_core
+suite_learn_core
+fastapi
+uvicorn[standard]
+# Il caricamento di un allegato dalla pagina: FastAPI rifiuta i form senza.
+python-multipart
+# Le immagini di un carosello: yt-dlp risolve il post e non trova formati video.
+gallery-dl
+# gallery-dl lo IMPORTA per gli elementi video di un carosello: senza,
+# fallisce con «Cannot import yt-dlp» anche quando servono le sole immagini.
+yt-dlp
+# The node owns its data: Alembic scaffold in backend/migrations, asyncpg driver.
+alembic
+asyncpg
+# Fetcher di riserva per le pagine bloccate (Life#69): il livello senza browser
+# di Scrapling. Obscura (Life#109, pagine solo-JS) e' un binario in ~/.local/bin.
+scrapling[fetchers]>=0.4,<0.5
+# suite_core.instances (registro delle istanze Life, ContentExtractor#4) lo importa
+# dal checkout di Life: e' la sua sola dipendenza fuori dalla libreria standard.
+filelock
+# AI_BACKEND=llm-run: il router di Life (llm_routing.keystore) cifra le chiavi con AES-GCM.
+cryptography
